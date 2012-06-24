@@ -1,0 +1,80 @@
+* {
+border:0;
+font:inherit;
+font-size:100%;
+margin:0;
+padding:0;
+vertical-align:baseline;
+font-family: "Lucida Sans Unicode", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+}
+
+@font-face {
+	  font-family: 'Lobster Two';
+	  font-style: italic;
+	  font-weight: 700;
+	  src: local('Lobster Two Bold Italic'), local('LobsterTwo-BoldItalic'), url('http://themes.googleusercontent.com/static/fonts/lobstertwo/v4/LEkN2_no_6kFvRfiBZ8xpARV2F9RPTaqyJ4QibDfkzM.woff') format('woff');
+}
+	@font-face {
+	  font-family: 'Lobster Two';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: local('Lobster Two'), local('LobsterTwo'), url('http://themes.googleusercontent.com/static/fonts/lobstertwo/v4/Law3VVulBOoxyKPkrNsAaIbN6UDyHWBl620a-IRfuBk.woff') format('woff');
+}
+
+.container {
+  width : 585px;
+}
+
+.header p {
+	padding: 10px;
+	background: #555;
+	color: #DDD;
+	font-family: 'Lobster Two', cursive;
+	font-size: 20px;
+	margin-bottom:0;
+	background: linear-gradient(bottom, #333, #555);
+	background: -o-linear-gradient(bottom, #333, #555);
+	background: -moz-linear-gradient(bottom, #333, #555);
+	background: -webkit-linear-gradient(bottom, #333, #555);
+	background: -ms-linear-gradient(bottom, #333, #555);
+	border-radius: 5px 5px 0 0;
+}
+
+.row {
+	padding: 10px 0 10px 0;
+	background: #ddd;
+	border-left: 1px solid #bcbcbc;
+	border-right: 1px solid #bcbcbc;
+}
+
+.row:hover {
+	background: #eee;
+	border-right: 7px solid #bcbcbc;
+}
+
+.row .title>a {
+	text-decoration: none;
+	display: block;
+	padding-left: 20px;
+	color: #888;
+	margin-bottom: -10px;
+	font-size: 14px;
+	text-shadow: 0px 1px 1px #FFF;
+	font-weight: bold;
+}
+
+.row .title>a:hover, .row .title>a:focus {
+	color: #555;
+}
+
+.r4 {
+	border-radius: 0 0 5px 5px;
+	border-bottom: 1px solid #bcbcbc;
+}
+
+.row p {
+  margin : 0;
+  padding-left : 10px;
+  color : #777;
+  font-size : 12px;
+}

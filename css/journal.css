@@ -1,0 +1,80 @@
+@import url("http://fonts.googleapis.com/css?family=Short+Stack|Signika Negative");
+
+* {
+border:0;
+font:inherit;
+font-size:100%;
+margin:0;
+padding:0;
+vertical-align:baseline;
+font-family: "Lucida Sans Unicode", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+}
+
+.container {
+  width : 585px;
+}
+
+
+.header p
+{
+	padding: 10px;
+	background: #555;
+	color: #FFFFFF;
+	font-family: 'Signika Negative', cursive;
+	font-size: 20px;
+	margin-bottom:0;
+background: rgb(117,81,10); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(117,81,10,1) 0%, rgba(76,53,6,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(117,81,10,1)), color-stop(100%,rgba(76,53,6,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(117,81,10,1) 0%,rgba(76,53,6,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(117,81,10,1) 0%,rgba(76,53,6,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(117,81,10,1) 0%,rgba(76,53,6,1) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(117,81,10,1) 0%,rgba(76,53,6,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75510a', endColorstr='#4c3506',GradientType=0 ); /* IE6-8 */
+
+
+
+	border-radius: 5px 5px 0 0;
+}
+
+.row {
+	padding: 10px 0 10px 0;
+	background: #F0E68C;
+	border-left: 1px solid #bcbcbc;
+	border-right: 1px solid #bcbcbc;
+}
+
+.row:hover
+{
+	background: #eee;
+	border-right: 7px solid #D2691E;
+}
+
+.row .title>a
+{
+	text-decoration: none;
+	display: block;
+	padding-left: 20px;
+	color: #000000;
+	margin-bottom: -10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.row .title>a:hover, .row .title>a:focus
+{
+	color: #555;
+}
+.r4
+{
+	border-radius: 0 0 5px 5px;
+	border-bottom: 1px solid #bcbcbc;
+}
+
+.row p {
+  margin : 0;
+  padding-left : 10px;
+  color : #777;
+  font-size : 12px;
+  font-family: "Short Stack", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+}
