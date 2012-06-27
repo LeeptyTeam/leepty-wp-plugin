@@ -27,7 +27,8 @@ define('leepty_VERSION', '0.6-nw');
 function leepty_content($content) {
 if (is_single())
 	{
-		$content .= leepty_get_box(get_the_ID());
+		//TODO Choose methode from configuration.
+		$content .= get_leepty_widget(get_the_ID());
 	}
 	return $content;
 }
@@ -41,9 +42,20 @@ function tronquer($texte, $max_caracteres) {
 	}
 	return $texte;
 }
-	
+
+function leepty_get_internal_related($id){
+	return $GLOBALS['wpdb']->get_results(sprintf(
+			"SELECT DISTINCT object_id as ID, post_title 
+			FROM {$GLOBALS['wpdb']->term_relationships} r, {$GLOBALS['wpdb']->term_taxonomy} t, {$GLOBALS['wpdb']->posts} p 
+			WHERE t.term_id IN (SELECT t.term_id FROM {$GLOBALS['wpdb']->term_relationships} r, {$GLOBALS['wpdb']->term_taxonomy} t 
+			WHERE r.term_taxonomy_id = t.term_taxonomy_id AND t.taxonomy = 'category' 
+				AND r.object_id = $id) AND r.term_taxonomy_id = t.term_taxonomy_id 
+				AND p.post_status = 'publish' AND p.ID = r.object_id AND object_id <> $id"
+			),OBJECT);
+}
+
 function leepty_get_box($id) {
-	$posts = $GLOBALS['wpdb']->get_results(sprintf("SELECT DISTINCT object_id as ID, post_title FROM {$GLOBALS['wpdb']->term_relationships} r, {$GLOBALS['wpdb']->term_taxonomy} t, {$GLOBALS['wpdb']->posts} p WHERE t.term_id IN (SELECT t.term_id FROM {$GLOBALS['wpdb']->term_relationships} r, {$GLOBALS['wpdb']->term_taxonomy} t WHERE r.term_taxonomy_id = t.term_taxonomy_id AND t.taxonomy = 'category' AND r.object_id = $id) AND r.term_taxonomy_id = t.term_taxonomy_id AND p.post_status = 'publish' AND p.ID = r.object_id AND object_id <> $id"),OBJECT);
+	$posts = leepty_get_internal_related($id);
 		if ($posts)
 		{
 			$i = 1;
@@ -77,6 +89,33 @@ function leepty_get_box($id) {
 			return $output;
 		}
 	}
+	
+function get_leepty_widget($id) {
+	$post = leepty_get_internal_related($id);
+	
+	$request = preg_replace("#([\?\#].*)$#",'',$_SERVER['REQUEST_URI']);
+	$widgetPath = $request.'wp-content/plugins/Leepty/';
+	
+	ob_start();?>
+	<script type="text/javascript">
+		var leeptyOption = {
+			basePath: '<?php echo $widgetPath; ?>',
+			moduleSettings:{
+				LeeptyWidget:{
+					template: 'sidebar',
+					widgetBasePath: '<?php echo $widgetPath; ?>'
+				}
+			}
+		}
+		
+		LeeptyHelpers.config(leeptyOption);
+		LeeptyHelpers.initLeeptyDependency();
+	</script>
+	<? 
+	$out = ob_get_clean();
+	
+	return $out;
+}
 /**
  * Envoi l'URL de chaque nouvel article du blog vers notre serveur
  * @todo USE HTTP API
@@ -293,7 +332,9 @@ function leepty_add_stylesheet() {
 	wp_register_style( 'leepty-style', plugins_url('css/styles.php', __FILE__) );
 	wp_enqueue_style( 'leepty-style' );
 	wp_register_script( 'leepty-js', plugins_url('js/jscolor.js', __FILE__) );
+	wp_register_script( 'leepty-js-helpers', plugins_url('js/LeeptyJSHelpers.js', __FILE__) );
 	wp_enqueue_script( 'leepty-js' );
+	wp_enqueue_script( 'leepty-js-helpers' );
     }
 
 ##############################################
