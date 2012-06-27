@@ -1,0 +1,49 @@
+/* 
+    Document   : leeptySidebar
+    Created on : 16 juin 2012, 13:14:36
+    Author     : Techniv <vpeybernes.pro@gmail.com>
+*/
+
+.leeptySidebar{
+	position: fixed;
+	z-index: 10000;
+	top: 0px; left: 0px;
+	
+	overflow-x: hidden;
+	width: 50px;
+	
+	box-shadow: inset -2px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+.leeptySidebar .leeptyContent{
+	width: 350px;
+}
+
+.leeptySidebar .leeptyHeader{
+	margin-left: 50px;
+}
+
+.leeptySidebar .leeptyList{
+	display: table;
+	list-style: none;
+	margin-left: 0px;
+}
+.leeptySidebar .leeptyList li{
+	display: table-row;
+	background-position: left center;
+	background-repeat: no-repeat;
+	
+	min-height: 50px;
+}
+.leeptySidebar .leeptyList li > div{
+	display: table-cell;
+	margin-right: 2px;
+}
+
+.leeptySidebar .leeptyList li div.leeptyItemTumb{
+	width: 50px; min-height: 50px;
+}
+.leeptySidebar .leeptyList li div.leeptyItemContent{
+	min-height: 50px;
+	vertical-align: middle;
+}
