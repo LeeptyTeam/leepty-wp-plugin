@@ -1,21 +1,21 @@
-=== Plugin Name ===
-Contributors: KLK1, sf89
-Tags: related, pages, posts, design, beautiful, sharing, traffic
-Requires at least: 2.0.2
-Tested up to: 2.1
-Stable tag: 3.3.2
-License: GPLv2
+# Leepty WordPress Plugin #
+- Contributors: KLK1, sf89
+- Tags: related, pages, posts, design, beautiful, sharing, traffic
+- Requires at least: 2.0.2
+- Tested up to: 2.1
+- Stable tag: 3.3.2
+- License: GPLv2
 
 Display Related Pages & Posts in a unique interface that you can customize.
 
-== Description ==
+## Description ##
 
 This plugin lets you display a “Related Posts & Pages” box that you can fully customize.
 
-
 Please note: This is still a Beta version. More features, fonts and themes are to come...
 
-# Exclusive Features:
+
+### Exclusive Features:
 - Pick among a list of well designed themes for your “Related Posts & Pages” box.
 - Change the colors of the different elements of the box so they match your blog’s look.
 - Personalize the fonts as you like and make this box your very own.
@@ -24,7 +24,7 @@ Please note: This is still a Beta version. More features, fonts and themes are t
 - Have your visitors stay longer on your site and increase the number of pages they see.
 
 
-== Installation ==
+## Installation ##
 
 1. Click “DOWNLOAD” to get the plugin.
 2. Go to the “PLUGIN” section in your Admin Panel on your blog.
@@ -32,21 +32,20 @@ Please note: This is still a Beta version. More features, fonts and themes are t
 4. You can now hit “ACTIVATE”.
 5. Congrats! Leepty is now installed on your blog!
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions ##
 
-= How many themes can I choose from =
+> How many themes can I choose from?
 
 For now, only three, but many more are to come over the next few days.
 
-= I have great tastes, can I build my own theme? =
+> I have great tastes, can I build my own theme?
 
 Yes entirely. We'll be adding more options over time. Google Fonts are to come with a bunch of new design possibilities.
 
-== Screenshots ==
 
 
-== Changelog ==
 
-= 0.6 =
-* This is our version number 0.6.
+## Changelog ##
+
+- 0.6 [current]:
 
