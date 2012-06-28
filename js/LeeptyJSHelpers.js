@@ -19,6 +19,10 @@
 				func: 'LeeptyWidget',
 				path: 'LeeptyWidget.js'
 			}
+			, LeeptyClient:{
+				func: 'LeeptyClient',
+				path: 'LeeptyClient.js'
+			}
 		},
 		moduleSettings:{}
 	};

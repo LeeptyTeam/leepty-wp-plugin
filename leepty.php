@@ -115,18 +115,20 @@ function get_leepty_widget($id) {
 				LeeptyWidget:{
 					template: 'sidebar',
 					widgetBasePath: '<?php echo $widgetPath; ?>'
+				},
+				
+				LeeptyClient: {
+					pageLink: 'http://www.google.com'
 				}
 			}
 		}
 		
 		
 		var data = JSON.parse('<?php echo $json; ?>');
-		console.log(data)
+		console.log(data);
 		LeeptyHelpers.config(leeptyOption);
 		LeeptyHelpers.initLeeptyDependency();
-		LeeptyHelpers.onReady(function(){
-			new LeeptyWidget({}, data);
-		});
+		
 	</script>
 	<? 
 	$out = ob_get_clean();

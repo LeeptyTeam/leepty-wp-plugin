@@ -50,7 +50,7 @@ function LeeptyWidget(option, data){
 		
 		if(typeof tplConf.styleFunc == 'function') tplConf.styleFunc(elements, tplConf);
 		bindEvent();
-		updateFlux(data);
+		updateFeed(data);
 		
 	}
 	
@@ -100,7 +100,7 @@ function LeeptyWidget(option, data){
 		return template.render(compiledData);
 	}
 	
-	function updateFlux(data){
+	function updateFeed(data){
 		var content = getFormatedData(data);
 		elements.itemList.append(content);
 	}
@@ -250,6 +250,7 @@ function LeeptyWidget(option, data){
 	
 	/* - API - */
 	
+	that.updateFeed = updateFeed
 	
 	/* Execution */
 	init(option,data);
