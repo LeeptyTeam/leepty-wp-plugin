@@ -91,7 +91,18 @@ function leepty_get_box($id) {
 	}
 	
 function get_leepty_widget($id) {
-	$post = leepty_get_internal_related($id);
+	$posts = leepty_get_internal_related($id);
+	
+	$data = array();
+	foreach ($posts as $post){
+		$data[] = array(
+			'title' => $post->post_title,
+			'url'	=> get_permalink($post->ID)
+		);
+	}
+	
+	$data = array('posts' => $data);
+	$json = json_encode($data);
 	
 	$request = preg_replace("#([\?\#].*)$#",'',$_SERVER['REQUEST_URI']);
 	$widgetPath = $request.'wp-content/plugins/Leepty/';
@@ -108,8 +119,14 @@ function get_leepty_widget($id) {
 			}
 		}
 		
+		
+		var data = JSON.parse('<?php echo $json; ?>');
+		console.log(data)
 		LeeptyHelpers.config(leeptyOption);
 		LeeptyHelpers.initLeeptyDependency();
+		LeeptyHelpers.onReady(function(){
+			new LeeptyWidget({}, data);
+		});
 	</script>
 	<? 
 	$out = ob_get_clean();
