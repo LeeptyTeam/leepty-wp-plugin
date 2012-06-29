@@ -239,7 +239,7 @@ function LeeptyWidget(option, data){
 		if(typeof conf.widgetBasePath == 'string'){
 			for(var key in conf){
 				if(/BasePath$/.test(key) && key != 'widgetBasePath'){
-					conf[key] = (conf.widgetBasePath+conf[key]).replace(/\/\//g, '/');
+					conf[key] = LeeptyHelpers.checkPath(conf.widgetBasePath+conf[key]);
 				}
 			}
 		}

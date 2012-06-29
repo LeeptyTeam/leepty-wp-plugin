@@ -36,10 +36,26 @@ var LeeptyHelpers = {
 		if(typeof settings.basePath == 'string'){
 			for(var key in settings){
 				if(/BasePath$/.test(key)){
-					settings[key] = (settings.basePath+'/'+settings[key]+'/').replace(/\/(\/)+/g, '/');
+					settings[key] = LeeptyHelpers.checkPath(settings.basePath+'/'+settings[key]+'/');
 				}
 			}
 		}
+	}
+	
+	, checkPath: function(input){
+		if(typeof input == 'string'){
+			return input.replace(/([^:])\/(\/)+/g, '$1/');
+		}
+		if(typeof input == 'object'){
+			for(var key in input){
+				if(/path/i.test(key)){
+					input[key] = LeeptyHelpers.checkPath(input[key]);
+				}
+			}
+			return input;
+		}
+		
+		return input;
 	}
 	
 	, getModuleConf: function(module){
@@ -109,7 +125,7 @@ var LeeptyHelpers = {
 		
 		function importLib(lib){
 			var path = /^http(s)?:/.test(lib.path) ? lib.path : settings.libBasePath+lib.path;
-			
+			console.log(path);
 			var head = document.getElementsByTagName('head')[0];
 			var importContener = document.createElement('script');
 			importContener.type = 'text/javascript';
