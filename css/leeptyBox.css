@@ -30,9 +30,12 @@
 	border: solid 1px;
 	padding: 5px 10px;
 	
+	color: #FFF;
 	color: rgba(255,255,255,0.9);
 	border-color: #333;
 	
+	
+	background: #555;
 	background: -o-linear-gradient(bottom, #333, #555);
 	background: -moz-linear-gradient(bottom, #333, #555);
 	background: -webkit-linear-gradient(bottom, #333, #555);

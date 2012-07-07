@@ -125,8 +125,8 @@ function get_leepty_widget($id) {
 		}
 		
 		
-		var data = JSON.parse('<?php echo $json; ?>');
-		console.log(data);
+		//var data = JSON.parse('<?php echo $json; ?>');
+		//console.log(data);
 		LeeptyHelpers.config(leeptyOption);
 		LeeptyHelpers.initLeeptyDependency();
 		
