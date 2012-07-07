@@ -1,6 +1,6 @@
 
 
-(function(window){
+(function(window, navigator){
 	
 	var settings = {
 		config: false,
@@ -174,6 +174,22 @@ var LeeptyHelpers = {
 			settings.libs[libName].callbacks.push(callback);
 		}
 	}
+	
+	, language: function(){
+		if(settings.language == undefined){
+			if(navigator.language){
+				settings.language = navigator.language;
+			}
+			else if(navigator.userLanguage){
+				settings.language = navigator.userLanguage;
+			} 
+			else {
+				settings.language = 'en';
+			}
+		}
+		
+		return settings.language;
+	}
 };
 
 	var method = {
@@ -197,4 +213,4 @@ var LeeptyHelpers = {
 
 	window.LeeptyHelpers = LeeptyHelpers;
 
-})(window)
+})(window, navigator)

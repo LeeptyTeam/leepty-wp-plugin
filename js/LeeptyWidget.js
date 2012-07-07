@@ -120,6 +120,8 @@
 			LeeptyWidget.prototype.id++;
 
 			var langList = LeeptyWidget.prototype.languages;
+			conf.language = (conf.language != 'default') ? conf.language : LeeptyHelpers.language();
+			
 			conf.lang = (langList[conf.language] != undefined) ? langList[conf.language] : langList['default'];
 			conf.template.lang = conf.lang
 
@@ -183,6 +185,10 @@
 	LeeptyWidget.prototype.languages = {
 		en: {
 			relatedPost: 'Related Post'
+		},
+		
+		fr: {
+			relatedPost: 'Article Relatif'
 		}
 	}
 	LeeptyWidget.prototype.languages['default'] = LeeptyWidget.prototype.languages.en;
