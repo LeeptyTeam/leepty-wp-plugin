@@ -21,7 +21,11 @@
 			}
 			, LeeptyWidgetTemplate:{
 				func: 'LeeptyWidget.prototype.templates',
-				path: 'LeeptyWidget.template.js'
+				path: 'LeeptyWidget.templates.js'
+			}
+			, LeeptyWidgetLanguages:{
+				func: 'LeeptyWidget.prototype.languages',
+				path: 'LeeptyWidget.languages.js'
 			}
 			, LeeptyClient:{
 				func: 'LeeptyClient',
@@ -189,6 +193,14 @@ var LeeptyHelpers = {
 		}
 		
 		return settings.language;
+	}
+	
+	, isIE: function(){
+		var agent = navigator.userAgent;
+		if(/MSIE ([0-9]+)/.test(agent)){
+			return parseInt(RegExp.$1);
+		}
+		return false;
 	}
 };
 

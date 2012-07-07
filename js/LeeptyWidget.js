@@ -49,10 +49,18 @@
 			elements.content = elements.contener.find('.'+tplConf.contentClass)
 			elements.itemList = elements.contener.find('.'+tplConf.itemListClass);
 
+			extendDOMElement();
+
 			if(typeof tplConf.styleFunc == 'function') tplConf.styleFunc(elements, tplConf);
 			bindEvent();
 			updateFeed(data);
 
+		}
+		
+		function extendDOMElement(){
+			elements.contener.get(0).updateFeed = function(data){
+				updateFeed.call(that, data);
+			};
 		}
 
 		function bindEvent(){
@@ -185,10 +193,6 @@
 	LeeptyWidget.prototype.languages = {
 		en: {
 			relatedPost: 'Related Post'
-		},
-		
-		fr: {
-			relatedPost: 'Article Relatif'
 		}
 	}
 	LeeptyWidget.prototype.languages['default'] = LeeptyWidget.prototype.languages.en;
