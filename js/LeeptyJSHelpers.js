@@ -63,7 +63,7 @@ var LeeptyHelpers = {
 	}
 	
 	, getModuleConf: function(module){
-		var moduleName = module.constructor.name;
+		var moduleName = method.getObjetType(module);
 		if(settings.moduleSettings[moduleName]){
 			return settings.moduleSettings[moduleName];
 		}
@@ -81,7 +81,7 @@ var LeeptyHelpers = {
 		return result;
 	}
 	
-	, importCSS: function (css){
+	, importCSS: function (css, cssBasePath){
 		switch (typeof css){
 			case 'string':
 				var cssTag = '<link type="text/css" rel="stylesheet" href="'+getCSSUrl(css)+'"/>'
@@ -93,8 +93,9 @@ var LeeptyHelpers = {
 		function getCSSUrl(url){
 			if(/^http(s)?:/.test(url)) return url;
 			else{
-				var baseUrl = conf.template.cssBasePath;
-				return baseUrl+url;
+				url = cssBasePath+'/'+url;
+				url = url.replace(/([^:])\/(\/)+/g, '$1/');
+				return url;
 			}
 		}
 	}
@@ -180,6 +181,17 @@ var LeeptyHelpers = {
 			for(var key in readyCallback){
 				readyCallback[key].call(window);
 			}
+		}
+		
+		, getObjetType: function(object){
+			var construct = object.constructor;
+			
+			if(construct.name) return construct.name;
+			
+			construct = construct.toString();
+			construct = /^function (.+)\(/.exec(construct);
+			
+			return construct[1];
 		}
 	}
 

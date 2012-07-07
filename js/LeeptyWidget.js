@@ -131,64 +131,17 @@
 			//initLibs(libConf, construct, data);
 		}
 
-		/**
-		* Check and import dependencies.
-		* @deprecated move on LeeptyHelper
-		* @TODO remove initLibs.
-		*/
-		function initLibs(libs, callback, args){
-			if ( typeof libs != 'object' ) return false;
-			var libCount = {
-				total: 0,
-				check: 0
-			}
-
-			for(var key in libs){
-				libCount.total++;
-				var lib = libs[key];
-
-				if(window[lib.func]) libCount.check++;
-				else importLib(lib);
-			}
-
-			var succesCheck = window.setInterval(function(){
-				if(libCount.check >= libCount.total){
-					window.clearInterval(succesCheck);
-					callback.call(window, args);
-				}
-			}, 1);
-
-			return true;
-
-
-			function importLib(lib){
-				var path = /^http(s)?:/.test(lib.path) ? lib.path : conf.libBasePath+lib.path;
-
-				var head = document.getElementsByTagName('head')[0];
-				var importContener = document.createElement('script');
-				importContener.type = 'text/javascript';
-				importContener.src = path;
-				head.appendChild(importContener);
-				var interval = window.setInterval(function(){
-					if(typeof window[lib.func] == 'function'){
-					window.clearInterval(interval);
-					libCount.check++;
-				}
-				},1);
-			}
-
-		}
-
 		function initCSS(){
 			var cssList = conf.template.css;
+			var cssBasePath = conf.cssBasePath;
 			switch (typeof cssList){
 				case 'string':
-					importCSS(cssList);
+					LeeptyHelpers.importCSS(cssList, cssBasePath);
 					break;
 				case 'object':
 					for(var i in cssList){
 						var css = cssList[i];
-						importCSS(css);
+						LeeptyHelpers.importCSS(css, cssBasePath);
 					}
 					break;
 				default:
@@ -197,30 +150,12 @@
 			return true;
 		}
 
-		function importCSS(css){
-			switch (typeof css){
-				case 'string':
-					var cssTag = '<link type="text/css" rel="stylesheet" href="'+getCSSUrl(css)+'"/>'
-					elements.head.append(cssTag);
-					break;
-				default:
-			}
-
-			function getCSSUrl(url){
-				if(/^http(s)?:/.test(url)) return url;
-				else{
-					var baseUrl = conf.template.cssBasePath;
-					return baseUrl+url;
-				}
-			}
-		}
-
 		function checkConf(){
 			if(LeeptyHelpers && LeeptyHelpers.getModuleConf){
 				defaultConf = LeeptyHelpers.extend(defaultConf, LeeptyHelpers.getModuleConf(that));
 			}
 			conf = LeeptyHelpers.extend(defaultConf, option);
-
+			window.t = that;
 			if(typeof conf.widgetBasePath == 'string'){
 				for(var key in conf){
 					if(/BasePath$/.test(key) && key != 'widgetBasePath'){

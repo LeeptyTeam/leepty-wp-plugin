@@ -105,9 +105,8 @@ function get_leepty_widget($id) {
 	$json = json_encode($data);
 	
 	$request = preg_replace("#([\?\#].*)$#",'',$_SERVER['REQUEST_URI']);
-//	$widgetPath = $request.'wp-content/plugins/Leepty/';
 	$widgetPath = plugin_dir_url(__FILE__);
-	
+
 	ob_start();?>
 	<div id="leeptyBoxParent"></div>
 	<script type="text/javascript">

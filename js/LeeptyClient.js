@@ -7,7 +7,6 @@
 	};
 	
 	LeeptyHelpers.onReady(function(){
-		console.log('go');
 		var leeptyClient = new LeeptyClient();
 		leeptyClient.displayFeed();
 		
@@ -26,7 +25,6 @@
 			settings = LeeptyHelpers.extend(settings, option);
 			displayEngine = new window[settings.display]();
 			
-			console.log(settings);
 			
 		}
 		
@@ -36,7 +34,6 @@
 			var data = {
 				link: settings.pageLink
 			}
-			console.log('test');
 			var feed = getFeedData(data, displayEngine.updateFeed);
 		}
 		
