@@ -7,9 +7,14 @@ for( var i in this.data.posts){
 		<img src="<%=post.tumb%>"/>
 	</div>
 	<div class="leeptyItemContent">
-		<a href="<%=post.url%>">
+		<a class="leeptyItemTitle" href="<%=post.url%>">
 			<%= post.title %>
 		</a>
+		<% if (post.sample){ %>
+		<div class="leeptyItemSample">
+			<%= post.sample %>
+		</div>
+		<% } %>
 	</div>
 </li>
 <% } %>

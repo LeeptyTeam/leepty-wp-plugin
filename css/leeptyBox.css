@@ -1,0 +1,96 @@
+/* 
+    Document   : leeptySidebar
+    Created on : 16 juin 2012, 13:14:36
+    Author     : Techniv <vpeybernes.pro@gmail.com>
+*/
+
+.leeptySidebar{
+	position: fixed;
+	z-index: 10000;
+	top: 0px; left: 0px;
+	
+	overflow-x: hidden;
+	width: 50px;
+	
+	box-shadow: inset -2px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+.leeptyBox{
+	width: 580px;
+	margin: 10px auto; padding: 0px;
+	
+	
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.leeptyBox .leeptyHeader{
+	font-family: 'Lobster Two', cursive;
+	font-size: 1.6em;
+	border: solid 1px;
+	padding: 5px 10px;
+	
+	color: rgba(255,255,255,0.9);
+	border-color: #333;
+	
+	background: -o-linear-gradient(bottom, #333, #555);
+	background: -moz-linear-gradient(bottom, #333, #555);
+	background: -webkit-linear-gradient(bottom, #333, #555);
+	background: linear-gradient(bottom, #333, #555);
+	
+	-moz-border-radius: 5px 5px 0px 0px; -webkit-border-radius-top-left: 5px 5px 0px 0px; -o-border-radius: 5px 5px 0px 0px;
+	border-radius : 5px 5px 0px 0px;
+	
+	text-shadow: 1px 2px 4px #000;
+}
+
+.leeptyBox .leeptyList{
+	display: table;
+	list-style: none;
+	margin: 0px; padding-bottom: 4px;
+	border: solid 1px;
+	background-color: #DDD;
+	border-color: #BCBCBC;
+	
+	-moz-border-radius: 0px 0px 5px 5px; -webkit-border-radius-top-left: 0px 0px 5px 5px; -o-border-radius: 0px 0px 5px 5px;
+	border-radius : 0px 0px 5px 5px;
+}
+.leeptyBox .leeptyList li{
+	display: table-row;
+	background-position: left center;
+	background-repeat: no-repeat;
+	
+	min-height: 50px;
+	
+	transition: all linear 1s;
+	-webkit-transition: all linear 0.5s;
+}
+.leeptyBox .leeptyList li > div{
+	display: table-cell;
+	margin-right: 2px;
+}
+
+.leeptyBox .leeptyList li div.leeptyItemTumb{
+	width: 50px; min-height: 50px;
+}
+.leeptyBox .leeptyList li div.leeptyItemContent{
+	min-height: 50px;
+	vertical-align: middle;
+	border-right: solid 6px #DDD;
+}
+
+.leeptyBox .leeptyList li:hover{
+	background-color: #EEE;
+}
+.leeptyBox .leeptyList li:hover div.leeptyItemContent{
+	border-right-color: #BCBCBC;
+}
+
+.leeptyBox .leeptyList li div.leeptyItemContent .leeptyItemTitle{
+	font-weight: bold; color: #555;
+	
+	text-shadow: 0px 1px 1px #FFF;
+}
+.leeptyBox .leeptyList li div.leeptyItemContent .leeptyItemSample{
+	font-size: 0.8em;
+}

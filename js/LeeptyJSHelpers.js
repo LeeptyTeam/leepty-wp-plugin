@@ -19,6 +19,10 @@
 				func: 'LeeptyWidget',
 				path: 'LeeptyWidget.js'
 			}
+			, LeeptyWidgetTemplate:{
+				func: 'LeeptyWidget.prototype.templates',
+				path: 'LeeptyWidget.template.js'
+			}
 			, LeeptyClient:{
 				func: 'LeeptyClient',
 				path: 'LeeptyClient.js'
@@ -125,16 +129,26 @@ var LeeptyHelpers = {
 		
 		function importLib(lib){
 			var path = /^http(s)?:/.test(lib.path) ? lib.path : settings.libBasePath+lib.path;
-			console.log(path);
 			var head = document.getElementsByTagName('head')[0];
 			var importContener = document.createElement('script');
 			importContener.type = 'text/javascript';
 			importContener.src = path;
 			head.appendChild(importContener);
 			var interval = window.setInterval(function(){
-				if(typeof window[lib.func] == 'function'){
+				var func;
+				try{
+					func = eval('window.'+lib.func);
+				} catch (e){
+					func = false;
+				}
+				if(func){
 				window.clearInterval(interval);
 				libCount.check++;
+				if(lib.callbacks){
+					for(var i in lib.callbacks){
+						lib.callbacks[i].call(window, window[lib.func]);
+					}
+				}
 			}
 			},1);
 		}
@@ -149,6 +163,15 @@ var LeeptyHelpers = {
 	
 	, onReady: function(callback){
 		readyCallback[callback] = callback;
+	}
+	
+	, onLibReady: function(libName, callback){
+		if(window[libName]){
+			callback.call(window, window[libName]);
+		} else if (settings.libs[libName]){
+			if(!settings.libs[libName].callbacks) settings.libs[libName].callbacks = [];
+			settings.libs[libName].callbacks.push(callback);
+		}
 	}
 };
 

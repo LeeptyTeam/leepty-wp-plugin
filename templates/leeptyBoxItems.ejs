@@ -1,0 +1,12 @@
+<% 
+for( var i in this.data.posts){ 
+	var post = this.data.posts[i];
+%>
+<li>
+	<div class="leeptyItemContent">
+		<a href="<%=post.url%>">
+			<%= post.title %>
+		</a>
+	</div>
+</li>
+<% } %>

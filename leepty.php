@@ -109,12 +109,13 @@ function get_leepty_widget($id) {
 	$widgetPath = plugin_dir_url(__FILE__);
 	
 	ob_start();?>
+	<div id="leeptyBoxParent"></div>
 	<script type="text/javascript">
 		var leeptyOption = {
 			basePath: '<?php echo $widgetPath; ?>',
 			moduleSettings:{
 				LeeptyWidget:{
-					template: 'sidebar',
+					template: 'box',
 					widgetBasePath: '<?php echo $widgetPath; ?>'
 				},
 				
