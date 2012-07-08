@@ -1,0 +1,54 @@
+/* 
+    Document   : leeptyBox.diary.css
+    Created on : 8 juil. 2012, 13:06:54
+    Author     : Techniv <vpeybernes.pro@gmail.com>
+    Description:
+        Diary theme for Box template of LeeptyWidget.
+*/
+
+.leeptyBox .leeptyHeader{
+	font-family: 'Signika Negative', sans-serif;
+	
+	background: #75510A;
+	background: -o-linear-gradient(top, rgba(117, 81, 10, 1) 0%,rgba(76, 53, 6, 1) 100%);
+	background: -moz-linear-gradient(top, rgba(117, 81, 10, 1) 0%,rgba(76, 53, 6, 1) 100%);
+	background: -webkit-linear-gradient(top, rgba(117, 81, 10, 1) 0%,rgba(76, 53, 6, 1) 100%);
+	background: -ms-linear-gradient(top, rgba(117, 81, 10, 1) 0%,rgba(76, 53, 6, 1) 100%);
+	background: linear-gradient(top, rgba(117, 81, 10, 1) 0%,rgba(76, 53, 6, 1) 100%);
+	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75510a', endColorstr='#4c3506',GradientType=0 );
+}
+
+.leeptyBox .leeptyList{
+	background-color: khaki;
+}
+
+.leeptyBox .leeptyList li div.leeptyItemContent{
+	border-right: solid 6px khaki;
+}
+
+.leeptyBox .leeptyList li:hover{
+	background-color: #EEE;
+}
+.leeptyBox .leeptyList li:hover div.leeptyItemContent{
+	border-right-color: chocolate;
+}
+
+.leeptyBox .leeptyList li div.leeptyItemContent .leeptyItemTitle{
+	font-weight: bold; color: black;
+	
+	text-shadow: 0px 1px 1px #FFF;
+}
+
+@font-face {
+  font-family: 'Signika Negative';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Signika Negative Bold'), local('SignikaNegative-Bold'), url(http://themes.googleusercontent.com/static/fonts/signikanegative/v2/q5TOjIw4CenPw6C-TW06FqqHaFHOcO_tRLsnTxFPLE0.woff) format('woff');
+}
+@font-face {
+  font-family: 'Signika Negative';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Signika Negative'), local('SignikaNegative-Regular'), url(http://themes.googleusercontent.com/static/fonts/signikanegative/v2/Z-Q1hzbY8uAo3TpTyPFMXRHNiTsuUke-4A8E9eWZJHI.woff) format('woff');
+}

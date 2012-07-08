@@ -115,6 +115,7 @@ function get_leepty_widget($id) {
 			moduleSettings:{
 				LeeptyWidget:{
 					template: 'box',
+					skin: 'classic',
 					widgetBasePath: '<?php echo $widgetPath; ?>'
 				},
 				
@@ -125,7 +126,7 @@ function get_leepty_widget($id) {
 		}
 		
 		
-		//var data = JSON.parse('<?php echo $json; ?>');
+		var data = JSON.parse('<?php echo $json; ?>');
 		//console.log(data);
 		LeeptyHelpers.config(leeptyOption);
 		LeeptyHelpers.initLeeptyDependency();

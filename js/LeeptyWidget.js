@@ -121,9 +121,26 @@
 
 			checkConf();
 
-			conf.template = LeeptyWidget.prototype.templates[conf.template];
+			if(typeof conf.template == 'string') conf.template = LeeptyWidget.prototype.templates[conf.template];
 			conf.template.tplBasePath = conf.templateBasePath;
 			if(conf.template.misc == undefined) conf.template.misc = {};
+			
+			if(conf.template.skinCssList && conf.template.defaultSkin){
+				conf.template.skin = conf.template.skinCssList[conf.template.defaultSkin];
+				switch(typeof conf.skin){
+					case 'string':
+						conf.template.skin = (conf.template.skinCssList[conf.skin]) ? 
+												conf.template.skinCssList[conf.skin] 
+												: conf.template.skin;
+						break;
+						
+					case 'object':
+						conf.template.skin = conf.skin;
+						break;
+				}
+				console.log(conf.template.skin);
+			}
+			
 			that.id = conf.template.contenerId+'-'+that.id;
 			LeeptyWidget.prototype.id++;
 
@@ -144,6 +161,14 @@
 		function initCSS(){
 			var cssList = conf.template.css;
 			var cssBasePath = conf.cssBasePath;
+			
+			if(conf.template.skin){
+				cssList = [cssList];
+				for(var i in conf.template.skin){
+					cssList.push(conf.template.skin[i]);
+				}
+			}
+			
 			switch (typeof cssList){
 				case 'string':
 					LeeptyHelpers.importCSS(cssList, cssBasePath);

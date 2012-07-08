@@ -66,6 +66,11 @@
 			tplItems:		'/leeptyItems.ejs',
 
 			css:			'/leeptyBox.css',
+			defaultSkin:	'classic',
+			skinCssList: {
+				classic:	[],
+				diary:		['/leeptyBox.diary.css']
+			},
 
 			defaultTumb:	'/file.png',
 			

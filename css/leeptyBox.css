@@ -19,7 +19,6 @@
 	width: 580px;
 	margin: 10px auto; padding: 0px;
 	
-	
 	-moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px;
 	border-radius: 5px;
 }
@@ -40,6 +39,8 @@
 	background: -moz-linear-gradient(bottom, #333, #555);
 	background: -webkit-linear-gradient(bottom, #333, #555);
 	background: linear-gradient(bottom, #333, #555);
+	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555555', endColorstr='#333333',GradientType=0 );
 	
 	-moz-border-radius: 5px 5px 0px 0px; -webkit-border-radius-top-left: 5px 5px 0px 0px; -o-border-radius: 5px 5px 0px 0px;
 	border-radius : 5px 5px 0px 0px;
@@ -96,4 +97,17 @@
 }
 .leeptyBox .leeptyList li div.leeptyItemContent .leeptyItemSample{
 	font-size: 0.8em;
+}
+
+@font-face {
+	font-family: 'Lobster Two';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Lobster Two Bold Italic'), local('LobsterTwo-BoldItalic'), url('http://themes.googleusercontent.com/static/fonts/lobstertwo/v4/LEkN2_no_6kFvRfiBZ8xpARV2F9RPTaqyJ4QibDfkzM.woff') format('woff');
+}
+@font-face {
+	font-family: 'Lobster Two';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Lobster Two'), local('LobsterTwo'), url('http://themes.googleusercontent.com/static/fonts/lobstertwo/v4/Law3VVulBOoxyKPkrNsAaIbN6UDyHWBl620a-IRfuBk.woff') format('woff');
 }

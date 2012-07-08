@@ -20,6 +20,8 @@
 }
 
 .leeptySidebar .leeptyHeader{
+	font-family: 'Lobster Two', cursive;
+	font-size: 1.6em;
 	margin-left: 50px;
 }
 
@@ -46,4 +48,17 @@
 .leeptySidebar .leeptyList li div.leeptyItemContent{
 	min-height: 50px;
 	vertical-align: middle;
+}
+
+@font-face {
+	font-family: 'Lobster Two';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Lobster Two Bold Italic'), local('LobsterTwo-BoldItalic'), url('http://themes.googleusercontent.com/static/fonts/lobstertwo/v4/LEkN2_no_6kFvRfiBZ8xpARV2F9RPTaqyJ4QibDfkzM.woff') format('woff');
+}
+@font-face {
+	font-family: 'Lobster Two';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Lobster Two'), local('LobsterTwo'), url('http://themes.googleusercontent.com/static/fonts/lobstertwo/v4/Law3VVulBOoxyKPkrNsAaIbN6UDyHWBl620a-IRfuBk.woff') format('woff');
 }
