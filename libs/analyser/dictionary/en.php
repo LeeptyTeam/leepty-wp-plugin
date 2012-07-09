@@ -6,7 +6,7 @@ namespace dictionary;
  *
  * @author Techniv <vpeybernes.pro@gmail.com>
  */
-class En extends \CommonDictionary{
+class en extends \CommonDictionary{
 
 	
 	protected function getWords() {
