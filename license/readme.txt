@@ -1,4 +1,4 @@
-<one line to give the program's name and a brief idea of what it does.>
+On the side of your page, Leepty displays a thread of tweets that are related to your content.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
