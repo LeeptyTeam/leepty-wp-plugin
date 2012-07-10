@@ -1,16 +1,16 @@
 # Leepty WordPress Plugin #
-- Contributors: KLK1, sf89
+- Contributors: KLK1, sf89, Techniv
 - Tags: related, pages, posts, design, beautiful, sharing, traffic
 - Requires at least: 2.0.2
 - Tested up to: 2.1
-- Stable tag: 3.3.2
+- Stable tag: 3.4.1
 - License: GPLv2
 
-Display Related Pages & Posts in a unique interface that you can customize.
+Display Related tweet in a unique interface that you can customize.
 
 ## Description ##
 
-This plugin lets you display a “Related Posts & Pages” box that you can fully customize.
+This plugin lets you display a “Related tweet” box(or thread) that you can fully customize.
 
 Please note: This is still a Beta version. More features, fonts and themes are to come...
 
@@ -47,5 +47,5 @@ Yes entirely. We'll be adding more options over time. Google Fonts are to come w
 
 ## Changelog ##
 
-- 0.6 [current]:
+- 0.1 [current]:
 
