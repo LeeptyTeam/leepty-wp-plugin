@@ -28,8 +28,10 @@ abstract class CommonDictionary {
 	}
 
 
-	public final function search($word){
-		if(preg_match(CommonDictionary::$purge_exp, $word) == 1) return true;
+	public final function search($word, $purged_text = true){
+		if (!$purged_text) {
+			if(preg_match(CommonDictionary::$purge_exp, $word) == 1) return true;
+		}
 		return $this->findWord($word);
 	}
 	
