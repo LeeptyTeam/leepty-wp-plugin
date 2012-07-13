@@ -8,18 +8,18 @@
 abstract class CommonDictionary {
 	
 	private $words;
-	private $symbole = array(
-		'base' => array('~','"','#','{','}','(',')','[',']','|','%','*','$',
-			'£','¤','§','?',',',';','.',':','/','\\','!','<','>'),
-		
-		'solo'=> array('&','+','#','@')
-	);
 	
+	private static $purge_exp = "#([^a-zA-Z0-9àáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s]+)|(\s[0-9.,]+\s)#Su";
+
+
 	public function __construct() {
-		$this->symbole['all'] = array_merge($this->symbole['base'], $this->symbole['solo']);
 		$this->words = $this->getWords();
 	}
 
+	/**
+	 * Get the dictionary list of words.
+	 * @return array
+	 */
 	protected abstract function getWords();
 	protected function findWord($word){
 		$first = substr($word, 0,1);
@@ -29,21 +29,17 @@ abstract class CommonDictionary {
 
 
 	public final function search($word){
-		$first = substr($word, 0,1);
-		if(in_array($first, $this->symbole['all'])){
-			$matchOther = false;
-			$l = strlen($word);
-			for($i=1; $i < $l; $i++){
-				if(!in_array(substr($word, $i,1), $this->symbole['all'])){
-					$matchOther = true;
-					break;
-				}
-			}
-			if(!$matchOther) return true;
-		}
+		if(preg_match(CommonDictionary::$purge_exp, $word) == 1) return true;
 		return $this->findWord($word);
 	}
 	
+	public final function purge($text, $selective = true){
+		return strtolower(
+				preg_replace(CommonDictionary::$purge_exp, ' ', $text)
+			);
+	}
+
+
 	private static $dictionary = array();
 	public static function getDictionary($lang){
 		$lang = strtolower($lang);
