@@ -3,10 +3,15 @@
  * The interface of sementic analyser to extract scored tags
  * from posts.
  * @author Techniv <vpeybernes.pro@gmail.com>
+ * @package LeeptyAnalyser
  * @version 1.0
  */
 interface LeeptyAnalyser {
 	
+	/**
+	 * Set the dictionary used to filter text.
+	 * @param CommonDictionary 
+	 */
 	function setDictionary($dictionary);
 	function setMaxWords($number);
 	function setTitle($title, $coefficient);
@@ -19,6 +24,7 @@ interface LeeptyAnalyser {
 /**
  * ClassLoader for LeeptyAnalyser.
  * @author Techniv <vpeybernes.pro@gmail.com>
+ * @package LeeptyAnalyser
  * @version 1.0
  */
 class LeeptyAnalyserClassLoader {
@@ -44,3 +50,7 @@ class LeeptyAnalyserClassLoader {
 }
 new LeeptyAnalyserClassLoader();
 
+
+class LeeptyAnalyserException extends Exception{
+	
+}
