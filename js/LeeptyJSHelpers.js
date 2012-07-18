@@ -27,9 +27,9 @@
 				func: 'LeeptyWidget.prototype.languages',
 				path: 'LeeptyWidget.languages.js'
 			}
-			, LeeptyClient:{
+			, LeeptyTwitterClient:{
 				func: 'LeeptyClient',
-				path: 'LeeptyClient.js'
+				path: 'LeeptyTwitterClient.js'
 			}
 		},
 		moduleSettings:{}
