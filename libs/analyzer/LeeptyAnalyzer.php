@@ -1,33 +1,32 @@
 <?php
 /**
- * The interface of sementic analyser to extract scored tags
+ * The interface of sementic analyzer to extract scored tags
  * from posts.
  * @author Techniv <vpeybernes.pro@gmail.com>
- * @package LeeptyAnalyser
+ * @package LeeptyAnalyzer
  * @version 1.0
  */
-interface LeeptyAnalyser {
+interface LeeptyAnalyzer {
 	
 	/**
 	 * Set the dictionary used to filter text.
 	 * @param CommonDictionary 
 	 */
-	function setDictionary($dictionary);
-	function setMaxWords($number);
+	function setDictionary(CommonDictionary $dictionary);
 	function setTitle($title, $coefficient);
 	function setText($text);
-	function setCoefficientedWords($words);
+	function setCoefficientedWords(CoefficientedWords $words);
 	function fireAnalyse();
 	
 }
 
 /**
- * ClassLoader for LeeptyAnalyser.
+ * ClassLoader for LeeptyAnalyzer.
  * @author Techniv <vpeybernes.pro@gmail.com>
- * @package LeeptyAnalyser
+ * @package LeeptyAnalyzer
  * @version 1.0
  */
-class LeeptyAnalyserClassLoader {
+class LeeptyAnalyzerClassLoader {
 	
 	private $path;
 	
@@ -48,9 +47,9 @@ class LeeptyAnalyserClassLoader {
 		if(file_exists($filePath)) include_once $filePath;
 	}
 }
-new LeeptyAnalyserClassLoader();
+new LeeptyAnalyzerClassLoader();
 
 
-class LeeptyAnalyserException extends Exception{
+class LeeptyAnalyzerException extends Exception{
 	
 }

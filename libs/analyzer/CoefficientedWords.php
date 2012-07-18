@@ -4,7 +4,7 @@
  * This is a map betwen words and coefficients.
  *
  * @author Techniv <vpeybernes.pro@gmail.com>
- * @package LeeptyAnalyser
+ * @package LeeptyAnalyzer
  * @version 1.0.0
  */
 class CoefficientedWords implements Iterator{

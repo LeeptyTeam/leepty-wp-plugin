@@ -1,5 +1,5 @@
 <?php
-include '../LeeptyAnalyser.php';
+include '../LeeptyAnalyzer.php';
 
 
 $words = new CoefficientedWords();

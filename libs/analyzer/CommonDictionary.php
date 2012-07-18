@@ -9,7 +9,7 @@ abstract class CommonDictionary {
 	
 	private $words;
 	
-	private static $purge_exp = "#([^a-zA-Z0-9àáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s]+)|(\s[0-9.,]+\s)#Su";
+	private static $purge_exp = "#(\s[0-9.,-]+\s)|([^a-zA-Z0-9àáâãäåçèéêëìíîïðòóôõöùúûüýÿ]+)#";
 
 
 	public function __construct() {
@@ -32,10 +32,10 @@ abstract class CommonDictionary {
 		if (!$purged_text) {
 			if(preg_match(CommonDictionary::$purge_exp, $word) == 1) return true;
 		}
-		return $this->findWord($word);
+		return (empty($word) ||$this->findWord($word));
 	}
 	
-	public final function purge($text, $selective = true){
+	public final function purge($text){
 		return strtolower(
 				preg_replace(CommonDictionary::$purge_exp, ' ', $text)
 			);
