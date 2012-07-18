@@ -7,13 +7,13 @@
 	};
 	
 	LeeptyHelpers.onReady(function(){
-		var leeptyClient = new LeeptyClient();
-		leeptyClient.displayFeed();
+		var LeeptyTwitterClient = new LeeptyTwitterClient();
+		LeeptyTwitterClient.displayFeed();
 		
-		window.leeptyClient = leeptyClient
+		window.LeeptyTwitterClient = LeeptyTwitterClient
 	});
 	
-	function LeeptyClient(option){
+	function LeeptyTwitterClient(option){
 		var that = this;
 		var settings = LeeptyHelpers.extend(defaultSettings, LeeptyHelpers.getModuleConf(that));
 		var displayEngine;
@@ -29,7 +29,7 @@
 		}
 		
 		function displayFeed(){
-			if(typeof settings.pageLink != 'string') throw('LeeptyClient can\'t define the page link.');
+			if(typeof settings.pageLink != 'string') throw('LeeptyTwitterClient can\'t define the page link.');
 			
 			var data = {
 				link: settings.pageLink
@@ -54,6 +54,6 @@
 	
 	
 	
-	window.LeeptyClient = LeeptyClient;
+	window.LeeptyTwitterClient = LeeptyTwitterClient;
 	
 })(window);
