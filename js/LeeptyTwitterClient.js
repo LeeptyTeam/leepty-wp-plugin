@@ -37,17 +37,21 @@
 			var feed = getFeedData(data, displayEngine.updateFeed);
 		}
 		
-		function getFeedData(data, success){
-			$.ajax({
-				type: 'GET',
-				url: settings.url,
-				data: data,
-				dataType: 'jsonp',
-				success: success,
-				jsonpCallback: 'jsonp'
-			});
-		}
-		
+		function getTweets(keywordArray, callback) {
+			//Translate parameter to proper string
+			var qryStr = keywordArray.toString();
+			qryStr = qryStr.replace(/,/g, "%40");
+			//Set URL for query
+			var qryUrl = 'http://search.twitter.com/search.json?q='+qryStr+'&callback=?';
+  			//Define an array for our objects
+  			var data = {items:[]};
+  			//Run the query
+  			$.getJSON(qryUrl, function(json) {
+  				data.items = json.results[i];
+  				callback(data);
+  			});
+  		};
+
 		/* API */
 		that.displayFeed = displayFeed;
 	}
