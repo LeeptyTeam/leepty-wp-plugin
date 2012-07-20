@@ -46,6 +46,10 @@ class CoefficientedWords implements Iterator{
 		return isset($this->words[$word]) ? $this->words[$word] : 1;
 	}
 	
+	function getWords(){
+		return array_keys($this->words);
+	}
+	
 	/**
 	 * Merge the CoefficientedWords ogject which given into this current
 	 * CoefficientedWords.
