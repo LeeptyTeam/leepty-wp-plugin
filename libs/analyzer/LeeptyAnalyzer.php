@@ -1,6 +1,6 @@
 <?php
 /**
- * The interface of sementic analyzer to extract scored tags
+ * The interface of text analyzer to extract scored tags
  * from posts.
  * @author Techniv <vpeybernes.pro@gmail.com>
  * @package LeeptyAnalyzer
@@ -13,7 +13,18 @@ interface LeeptyAnalyzer {
 	 * @param CommonDictionary 
 	 */
 	function setDictionary(CommonDictionary $dictionary);
+	
+	/**
+	 * Set the title of text with the coefficient of this.
+	 * @param string $title
+	 * @param int $coefficient
+	 */
 	function setTitle($title, $coefficient);
+	
+	/**
+	 * Set the text to analyse.
+	 * @param string $text 
+	 */
 	function setText($text);
 	function setCoefficientedWords(CoefficientedWords $words);
 	function fireAnalyse();

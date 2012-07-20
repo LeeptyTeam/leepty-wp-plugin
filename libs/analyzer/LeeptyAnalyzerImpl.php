@@ -1,10 +1,13 @@
 <?php
 
 /**
- * Description of LeeptyAnalyzerImpl
+ * This is the implementation of LeeptyAnalyser.
  *
  * @author Techniv <vpeybernes.pro@gmail.com>
  * @version 1.0.0
+ * @package LeeptyAnalyzer
+ * 
+ * @see LeeptyAnalyzer
  */
 class LeeptyAnalyzerImpl implements LeeptyAnalyzer {
 	
@@ -61,11 +64,21 @@ class LeeptyAnalyzerImpl implements LeeptyAnalyzer {
 			$scored_words = $this->scoreMerge($title, $scored_words);
 		}
 		
+		foreach ($this->coefficient as $word => $value) {
+			if(isset($scored_words[$word])){
+				$scored_words[$word] = $scored_words[$word] * $value;
+			}
+		}
+		
 		arsort($scored_words);
 		
 		return $scored_words;
 	}
 	
+	/**
+	 * Check if all conf is set.
+	 * @return boolean 
+	 */
 	public function isReady(){
 		if(!isset($this->dictionary)) return false;
 		if(!isset($this->coefficient)) return false;
@@ -73,7 +86,12 @@ class LeeptyAnalyzerImpl implements LeeptyAnalyzer {
 		return true;
 	}
 
-
+	/**
+	 * Analyse the subject.
+	 * @param string $subject
+	 * @return array the list of word with their score.
+	 * @throws LeeptyAnalyzerException 
+	 */
 	protected function analyse($subject){
 		if(!$this->isReady()) throw new LeeptyAnalyzerException('The analyser is not ready to lauch.',21);
 		if(!is_string($subject)) throw new LeeptyAnalyzerException('Only strings can be analyzed.', 23);
@@ -94,6 +112,12 @@ class LeeptyAnalyzerImpl implements LeeptyAnalyzer {
 		return $result;
 	}
 	
+	/**
+	 * Merge two score arrays.
+	 * @param array $score1
+	 * @param array $score2
+	 * @return array 
+	 */
 	private function scoreMerge($score1, $score2){
 		foreach ($score1 as $key => $value) {
 			if(isset($score2[$key])){
