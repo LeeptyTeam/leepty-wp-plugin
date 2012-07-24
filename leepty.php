@@ -37,7 +37,7 @@ function leepty_welcome () {
     REFERENCES `wp_posts` (`ID` )
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-	ENGINE = InnoDB";
+	ENGINE = MyISAM";
 	
 	//for the next function
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -50,9 +50,7 @@ function leepty_welcome () {
 }
 
 /**
-*
 * Call when plugin is deactivate 
-*  
 */
 function leepty_good_bye() {
 	global $wpdb;
