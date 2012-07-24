@@ -1,4 +1,7 @@
-Leepty for WordPress is a plugin to make your pages richer: it showcases related content from the web in a great looking Thread. Leepty also increases the SEO value of your page and their sharing on social networks.
+Leepty for WordPress (alias 'leepty-wp-plugin') is a plugin to make your 
+pages richer: it showcases related content from the web in a great 
+looking Thread. Leepty also increases the SEO value of your page and 
+their sharing on social networks.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
