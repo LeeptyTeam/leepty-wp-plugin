@@ -24,7 +24,7 @@ iPad2";
 		$analyzer->setMaxWords(5);
 		$analyzer->setCoefficientedWords(new CoefficientedWords());
 		$analyzer->setText($text);
-		$analyzer->setTitle($title);
+		$analyzer->setTitle($title, 2);
 		$this->analyzer = $analyzer;
 		
 		var_dump($this->analyse($text));

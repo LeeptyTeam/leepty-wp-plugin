@@ -21,6 +21,8 @@ abstract class CommonDictionary {
 	 * @return array
 	 */
 	protected abstract function getWords();
+	
+	
 	protected function findWord($word){
 		$first = substr($word, 0,1);
 		if(!isset($this->words[$first])) return false;
