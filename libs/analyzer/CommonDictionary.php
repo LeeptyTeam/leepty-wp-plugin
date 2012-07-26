@@ -38,19 +38,35 @@ abstract class CommonDictionary {
 	}
 	
 	public final function purge($text){
-		return strtolower(
-				preg_replace(CommonDictionary::$purge_exp, ' ', $text)
-			);
+		/* HTML purge */
+		$text = strip_tags($text);
+		$text = htmlentities($text);
+		$text = preg_replace("#&.+;#", ' ', $text);
+		
+		/* Common purge */
+		$text = preg_replace(CommonDictionary::$purge_exp, ' ', $text);
+		$text = strtolower($text);
+		echo $text;
+		return $text;
 	}
 
 
 	private static $dictionary = array();
-	public static function getDictionary($lang){
+	public static function getDictionary($lang, $useDefault = false){
 		$lang = strtolower($lang);
 		if(!isset(self::$dictionary[$lang])){
-			$className = 'dictionary\\'.$lang;
-			$class = new ReflectionClass($className);
-			self::$dictionary[$lang] = $class->newInstance();
+			try{
+				$className = 'dictionary\\'.$lang;
+				$class = new ReflectionClass($className);
+				self::$dictionary[$lang] = $class->newInstance();
+			}
+			catch (ReflectionException $e){
+				if($useDefault){
+					self::$dictionary[$lang] = new dictionary\en();
+				} else {
+					throw new LeeptyAnalyzerException('Sorry but the "'.$lang.'" is not supported by the LeeptyAnalyser.', 31, $e);
+				}
+			}
 		}
 		
 		return self::$dictionary[$lang];

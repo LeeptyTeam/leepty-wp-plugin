@@ -52,6 +52,7 @@ class LeeptyAnalyzerImpl implements LeeptyAnalyzer {
 	}
 
 	public function fireAnalyse() {
+		if(!isset($this->coefficient)) $this->coefficient = new CoefficientedWords();
 		if(!$this->isReady()) throw new LeeptyAnalyzerException('The analyser is not ready to lauch.',21);
 		
 		$scored_words = $this->analyse($this->text);

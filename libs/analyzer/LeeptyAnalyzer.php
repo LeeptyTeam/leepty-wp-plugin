@@ -28,7 +28,14 @@ interface LeeptyAnalyzer {
 	function setText($text);
 	function setCoefficientedWords(CoefficientedWords $words);
 	function fireAnalyse();
-	
+}
+
+/**
+ * Return the implementation of LeeptyAnalyzer class.
+ * @return LeeptyAnalyzer the instance of LeeptyAnalyzer
+ */
+function leeptyAnalyzer(){
+	return new LeeptyAnalyzerImpl();
 }
 
 /**
@@ -39,6 +46,8 @@ interface LeeptyAnalyzer {
  */
 class LeeptyAnalyzerClassLoader {
 	
+
+
 	private $path;
 	
 	
