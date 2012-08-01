@@ -31,8 +31,7 @@
 		function displayFeed(){
 			if(typeof settings.tags != 'object') throw('LeeptyTwitterClient can\'t define the post\'s tags.');
 			
-			getTweets(settings.tags, function(data){console.log(data)})
-//			var feed = getFeedData(data, displayEngine.updateFeed);
+			getTweets(settings.tags, displayEngine.updateFeed);
 		}
 		
 		function getTweets(keywordArray, callback) {
@@ -49,7 +48,7 @@
   				data.items = json.results;
   				callback(data);
   			});
-  		};
+  		}
 
 		/* API */
 		that.displayFeed = displayFeed;

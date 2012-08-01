@@ -1,18 +1,20 @@
 <% 
-for( var i in this.data.posts){ 
-	var post = this.data.posts[i];
+console.log(this.data)
+for( var i in this.data.items){
+	if(i==10)break;
+	var tweet = this.data.items[i];
 %>
 <li>
 	<div class="leeptyItemTumb">
-		<img src="<%=post.tumb%>"/>
+		<img src="<%=tweet.profile_image_url%>"/>
 	</div>
 	<div class="leeptyItemContent">
-		<a class="leeptyItemTitle" href="<%=post.url%>">
-			<%= post.title %>
+		<a class="leeptyItemTitle" href="https://twitter.com/<%= tweet.from_user %>">
+			@<%= tweet.from_user %>
 		</a>
-		<% if (post.sample){ %>
+		<% if (tweet.text){ %>
 		<div class="leeptyItemSample">
-			<%= post.sample %>
+			<%= tweet.text %>
 		</div>
 		<% } %>
 	</div>

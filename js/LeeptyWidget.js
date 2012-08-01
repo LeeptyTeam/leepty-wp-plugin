@@ -100,8 +100,8 @@
 			if(data == undefined) return '';
 			var tplConf = conf.template;
 			var template = new EJS({url: tplConf.tplBasePath+tplConf.tplItems});
-
-			data = tplConf.dataFormater(data, tplConf);
+			console.log(data)
+			//data = tplConf.dataFormater(data, tplConf);
 
 			var compiledData = {
 				data: data
