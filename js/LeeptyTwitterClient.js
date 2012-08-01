@@ -7,10 +7,10 @@
 	};
 	
 	LeeptyHelpers.onReady(function(){
-		var LeeptyTwitterClient = new LeeptyTwitterClient();
-		LeeptyTwitterClient.displayFeed();
+		var leeptyTwitterClient = new LeeptyTwitterClient();
+		leeptyTwitterClient.displayFeed();
 		
-		window.LeeptyTwitterClient = LeeptyTwitterClient
+		window.leeptyTwitterClient = leeptyTwitterClient
 	});
 	
 	function LeeptyTwitterClient(option){
@@ -29,12 +29,10 @@
 		}
 		
 		function displayFeed(){
-			if(typeof settings.pageLink != 'string') throw('LeeptyTwitterClient can\'t define the page link.');
+			if(typeof settings.tags != 'object') throw('LeeptyTwitterClient can\'t define the post\'s tags.');
 			
-			var data = {
-				link: settings.pageLink
-			}
-			var feed = getFeedData(data, displayEngine.updateFeed);
+			getTweets(settings.tags, function(data){console.log(data)})
+//			var feed = getFeedData(data, displayEngine.updateFeed);
 		}
 		
 		function getTweets(keywordArray, callback) {
@@ -43,11 +41,12 @@
 			qryStr = qryStr.replace(/,/g, "%40");
 			//Set URL for query
 			var qryUrl = 'http://search.twitter.com/search.json?q='+qryStr+'&callback=?';
+			console.log(qryUrl);
   			//Define an array for our objects
   			var data = {items:[]};
   			//Run the query
   			$.getJSON(qryUrl, function(json) {
-  				data.items = json.results[i];
+  				data.items = json.results;
   				callback(data);
   			});
   		};
