@@ -59,6 +59,7 @@
 			}
 			
 			, bindEvents: function(elements){
+				if(elements.contener.height() < elements.holder.height())
 				elements.contener.bind('mousewheel', function(e){
 					e.preventDefault();
 					var delta = e.originalEvent.wheelDelta;
