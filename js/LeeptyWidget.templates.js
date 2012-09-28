@@ -6,6 +6,7 @@
 			contenerId:		'leeptyWidget',
 			contentClass:	'leeptyContent',
 			itemListClass:	'leeptyList',
+			scrollContener: 'lwScroller',
 
 			insertMode:		'append',
 
@@ -30,6 +31,15 @@
 				elements.content.css('margin-top',(topMarge+20)+'px');
 				elements.contener.css('height', $(document).height()+'px');
 				elements.contener.css('background-color', elements.body.css('background-color'));
+				
+				var scroller = $('.'+tplConf.scrollContener);
+				elements.scroller = scroller;
+				
+				var heigth = ($.LWScroller.windowHeight() - (20 + 39))+'px';
+				
+				scroller.LWScroller({
+					height: heigth
+				});
 			},
 
 			eventListener:{

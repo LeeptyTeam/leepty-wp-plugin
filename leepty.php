@@ -175,7 +175,7 @@ class leepty_wp_plugin{
 		$plugin_url = plugin_dir_url(__FILE__);
 		$tags		= self::get_tags($id);
 		
-		include 'templates/include_post.php';
+		include 'templates/include_post_head.php';
 	}
 
 

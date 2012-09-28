@@ -31,6 +31,10 @@
 				func: 'LeeptyTwitterClient',
 				path: 'LeeptyTwitterClient.js'
 			}
+			, LeeptyWidgetScroller: {
+				func: 'jQuery.fn.LWScroller',
+				path: 'LeeptyWidget.scroller.js'
+			}
 		},
 		moduleSettings:{}
 	};
