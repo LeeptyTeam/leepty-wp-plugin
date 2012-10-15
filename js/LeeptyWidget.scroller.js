@@ -59,29 +59,31 @@
 			}
 			
 			, bindEvents: function(elements){
-				if(elements.contener.height() < elements.holder.height())
+				console.log(elements.contener.height() < elements.holder.height());
 				elements.contener.bind('mousewheel', function(e){
-					e.preventDefault();
-					var delta = e.originalEvent.wheelDelta;
-					
-					
-					var curScroll = elements.holder.css('margin-top');
-					console.log(curScroll);
-					if(/(\-?\d*)px/.test(curScroll)){
-						curScroll = parseInt(RegExp.$1);
-					} else {
-						curScroll = 0;
+					if(elements.contener.height() < elements.holder.height()){
+						e.preventDefault();
+						var delta = e.originalEvent.wheelDelta;
+
+
+						var curScroll = elements.holder.css('margin-top');
+						console.log(curScroll);
+						if(/(\-?\d*)px/.test(curScroll)){
+							curScroll = parseInt(RegExp.$1);
+						} else {
+							curScroll = 0;
+						}
+						var maxScroll = elements.contener.height() - elements.holder.height();
+
+						var newScroll = delta + curScroll;
+						if(delta < 0){
+							if(newScroll < maxScroll) delta = delta + maxScroll - newScroll;
+						} else {
+							if(newScroll > 0) delta = delta - newScroll;
+						}
+
+						elements.holder.css('margin-top',(curScroll+delta)+'px');
 					}
-					var maxScroll = elements.contener.height() - elements.holder.height();
-					
-					var newScroll = delta + curScroll;
-					if(delta < 0){
-						if(newScroll < maxScroll) delta = delta + maxScroll - newScroll;
-					} else {
-						if(newScroll > 0) delta = delta - newScroll;
-					}
-					
-					elements.holder.css('margin-top',(curScroll+delta)+'px');
 				});
 			}
 			
