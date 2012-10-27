@@ -91,7 +91,7 @@ function leepty_sending_content(array $data, $url=LEEPTY_RECEIVER) {
 		foreach ($data as $key=>$values) {
 			$sending .="\n".$key." ".$values;
 		}
-		wp_mail('lebrun.kevin93@gmail.com', 'The subject', ''.$sending.'');	
+		//wp_mail('', 'The subject', ''.$sending.'');	
 	}	
 }
 
